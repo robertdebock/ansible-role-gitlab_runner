@@ -1,0 +1,77 @@
+---
+# tasks file for gitlab_runner
+- name: install requirements
+  package:
+    name: "{{ gitlab_runner_requirements }}"
+    state: present
+  register: gitlab_runner_install_requirements
+  until: gitlab_runner_install_requirements is succeeded
+  retries: 3
+
+- name: install apt repository
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  register: gitlab_runner_install_apt_repositories
+  until: gitlab_runner_install_apt_repositories is succeeded
+  retries: 3
+  with_items:
+    - "{{ gitlab_runner_apt_repositories }}"
+  when:
+    - ansible_pkg_mgr == "apt"
+  notify:
+    - update apt cache
+
+- name: install yum repository
+  yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.name }}"
+    baseurl: "{{ item.baseurl }}"
+  register: gitlab_runner_install_yum_repository
+  until: gitlab_runner_install_yum_repository is succeeded
+  retries: 3
+  with_items:
+    - "{{ gitlab_runner_yum_repositories }}"
+  when:
+    - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
+
+- name: install gpgkey in apt
+  apt_key:
+    url: "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
+    state: present
+  register: gitlab_runner_install_gpgkey_in_apt
+  until: gitlab_runner_install_gpgkey_in_apt is succeeded
+  retries: 3
+  when:
+    - ansible_pkg_mgr == "apt"
+  notify:
+    - update apt cache
+
+- name: install gpgkey in rpm
+  rpm_key:
+    key: "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
+    state: present
+  register: gitlab_runner_install_gpgkey_in_rpm
+  until: gitlab_runner_install_gpgkey_in_rpm is succeeded
+  retries: 3
+  when:
+    - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
+
+- name: flush handlers
+  meta: flush_handlers
+
+- name: install gitlab-runner
+  package:
+    name: "{{ gitlab_runner_packages }}"
+    state: present
+  register: gitlab_runner_install_gitlab_runner
+  until: gitlab_runner_install_gitlab_runner is succeeded
+  retries: 3
+
+- name: start and enable gitlab-runner
+  service:
+    name: "{{ gitlab_runner_service }}"
+    state: started
+    enabled: yes
+  when:
+    - ansible_virtualization_type != "docker"

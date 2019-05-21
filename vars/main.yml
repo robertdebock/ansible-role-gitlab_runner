@@ -1,0 +1,27 @@
+---
+# vars file for gitlab_runner
+_gitlab_runner_requirements:
+  Debian:
+    - gnupg
+    - curl
+    - debian-archive-keyring
+    - apt-transport-https
+  RedHat:
+    - curl
+    - yum-utils
+
+gitlab_runner_requirements: "{{ _gitlab_runner_requirements[ansible_os_family] }}"
+
+gitlab_runner_apt_repositories:
+  - deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main
+  - deb-src https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main
+
+gitlab_runner_yum_repositories:
+  - name: runner_gitlab-runner
+    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/7/$basearch
+  - name: runner_gitlab-runner-source
+    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/7/SRPMS
+gitlab_runner_packages:
+  - gitlab-runner
+
+gitlab_runner_service: gitlab-runner

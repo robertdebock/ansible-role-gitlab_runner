@@ -1,0 +1,14 @@
+---
+# handlers file for gitlab_runner
+- name: restart gitlab-runner
+  service:
+    name: "{{ gitlab_runner_service }}"
+    state: restarted
+  when:
+    - ansible_virtualization_type != "docker"
+
+- name: update apt cache
+  apt:
+    update_cache: yes
+  when:
+    - ansible_pkg_mgr == "apt"
