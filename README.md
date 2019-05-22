@@ -3,7 +3,7 @@ gitlab_runner
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-gitlab_runner.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-gitlab_runner)
 
-Install and configure gitlab-runner on your system.
+Install and configure gitlab-runner on your system
 
 Example Playbook
 ----------------
