@@ -18,9 +18,16 @@ gitlab_runner_apt_repositories:
 
 gitlab_runner_yum_repositories:
   - name: runner_gitlab-runner
-    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/7/$basearch
+    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/{{ ansible_distribution_major_version }}/$basearch
+    gpgkey:
+      - https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+      - https://packages.gitlab.com/runner/gitlab-runner/gpgkey/runner-gitlab-runner-366915F31B487241.pub.gpg
   - name: runner_gitlab-runner-source
-    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/7/SRPMS
+    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/{{ ansible_distribution_major_version }}/SRPMS
+    gpgkey:
+      - https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+      - https://packages.gitlab.com/runner/gitlab-runner/gpgkey/runner-gitlab-runner-366915F31B487241.pub.gpg
+
 gitlab_runner_packages:
   - gitlab-runner
 

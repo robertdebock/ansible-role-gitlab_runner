@@ -22,11 +22,12 @@
   notify:
     - update apt cache
 
-- name: install yum repository
+- name: install rpm repository
   yum_repository:
     name: "{{ item.name }}"
     description: "{{ item.name }}"
     baseurl: "{{ item.baseurl }}"
+    gpgkey: "{{ item.gpgkey }}"
   register: gitlab_runner_install_yum_repository
   until: gitlab_runner_install_yum_repository is succeeded
   retries: 3
@@ -34,6 +35,8 @@
     - "{{ gitlab_runner_yum_repositories }}"
   when:
     - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
+  loop_control:
+    label: "{{ item.name }}"
 
 - name: install gpgkey in apt
   apt_key:
@@ -46,16 +49,6 @@
     - ansible_pkg_mgr == "apt"
   notify:
     - update apt cache
-
-- name: install gpgkey in rpm
-  rpm_key:
-    key: "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
-    state: present
-  register: gitlab_runner_install_gpgkey_in_rpm
-  until: gitlab_runner_install_gpgkey_in_rpm is succeeded
-  retries: 3
-  when:
-    - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
 
 - name: flush handlers
   meta: flush_handlers
