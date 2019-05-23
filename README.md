@@ -3,7 +3,7 @@ gitlab_runner
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-gitlab_runner.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-gitlab_runner)
 
-Install and configure gitlab-runner on your system
+Install and configure gitlab-runner on your system.
 
 Example Playbook
 ----------------
@@ -89,7 +89,7 @@ This role has been tested against the following distributions and Ansible versio
 |opensuse-leap|no|no|no*|
 |ubuntu-devel*|yes|yes|yes*|
 |ubuntu-latest|yes|yes|yes*|
-|ubuntu-rolling|yes|yes|yes*|
+|ubuntu-rolling|no|no|no*|
 
 A single star means the build may fail, it's marked as an experimental build.
 
