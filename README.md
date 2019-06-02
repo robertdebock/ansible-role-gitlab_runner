@@ -1,7 +1,8 @@
 gitlab_runner
 =========
 
-[![Build Status](https://travis-ci.org/robertdebock/ansible-role-gitlab_runner.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-gitlab_runner)
+<img src="https://docs.ansible.com/ansible-tower/3.2.4/html_ja/installandreference/_static/images/logo_invert.png" width="10%" height="10%" alt="Ansible logo" align="left"/>
+<a href="https://travis-ci.org/robertdebock/ansible-role-gitlab_runner"><img src="https://travis-ci.org/robertdebock/ansible-role-gitlab_runner.svg?branch=master" alt="Build status" align="left"/></a>
 
 Install and configure gitlab-runner on your system.
 
@@ -29,8 +30,11 @@ The machine you are running this on, may need to be prepared.
   gather_facts: no
 
   roles:
-    - robertdebock.bootstrap
-    - robertdebock.update
+    - role: robertdebock.bootstrap
+    - role: robertdebock.update
+    - role: robertdebock.python_pip
+      python_pip_modules:
+        - name: pexpect
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -42,6 +46,8 @@ These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for gitlab_runner
+
+gitlab_runner_docker_image: "alpine:latest"
 ```
 
 Requirements

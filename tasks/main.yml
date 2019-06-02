@@ -60,6 +60,8 @@
   register: gitlab_runner_install_gitlab_runner
   until: gitlab_runner_install_gitlab_runner is succeeded
   retries: 3
+  notify:
+    - register gitlab runner
 
 - name: start and enable gitlab-runner
   service:

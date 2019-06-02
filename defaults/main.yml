@@ -1,2 +1,4 @@
 ---
 # defaults file for gitlab_runner
+
+gitlab_runner_docker_image: "alpine:latest"

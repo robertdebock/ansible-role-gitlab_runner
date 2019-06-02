@@ -6,9 +6,12 @@ _gitlab_runner_requirements:
     - curl
     - debian-archive-keyring
     - apt-transport-https
+    - git
+    - openssl
   RedHat:
     - curl
     - yum-utils
+    - openssl
 
 gitlab_runner_requirements: "{{ _gitlab_runner_requirements[ansible_os_family] }}"
 

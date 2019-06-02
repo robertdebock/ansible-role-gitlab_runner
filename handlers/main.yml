@@ -12,3 +12,20 @@
     update_cache: yes
   when:
     - ansible_pkg_mgr == "apt"
+
+- name: register gitlab runner
+  expect:
+    command: gitlab-runner register
+    responses:
+      (.*)gitlab-ci coordinator URL(.*): "{{ gitlab_runner_url }}"
+      (.*)gitlab-ci token for this runner(.*): "{{ gitlab_runner_token }}"
+      (.*)gitlab-ci description for this runner(.*): "{{ gitlab_runner_description }}"
+      (.*)gitlab-ci tags for this runner(.*): "{{ gitlab_runner_description }}"
+      (.*)executor(.*): "{{ gitlab_runner_executor }}"
+      (.*)Docker image(.*): "{{ gitlab_runner_docker_image }}"
+  when:
+    - gitlab_runner_url is defined
+    - gitlab_runner_token is defined
+    - gitlab_runner_description is defined
+    - gitlab_runner_tags is defined
+    - gitlab_runner_executor is defined

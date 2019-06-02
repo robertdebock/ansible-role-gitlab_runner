@@ -5,5 +5,8 @@
   gather_facts: no
 
   roles:
-    - robertdebock.bootstrap
-    - robertdebock.update
+    - role: robertdebock.bootstrap
+    - role: robertdebock.update
+    - role: robertdebock.python_pip
+      python_pip_modules:
+        - name: pexpect
