@@ -63,6 +63,7 @@ The following roles can be installed to ensure all requirements are met, using `
 - robertdebock.bootstrap
 - robertdebock.update
 - robertdebock.reboot
+- robertdebock.python_pip
 
 ```
 
