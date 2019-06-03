@@ -32,6 +32,8 @@ The machine you are running this on, may need to be prepared.
   roles:
     - role: robertdebock.bootstrap
     - role: robertdebock.update
+    - role: robertdebock.buildtools
+    - role: robertdebock.epel
     - role: robertdebock.python_pip
       python_pip_modules:
         - name: pexpect
@@ -63,6 +65,8 @@ The following roles can be installed to ensure all requirements are met, using `
 - robertdebock.bootstrap
 - robertdebock.update
 - robertdebock.reboot
+- robertdebock.buildtools
+- robertdebock.epel
 - robertdebock.python_pip
 
 ```
