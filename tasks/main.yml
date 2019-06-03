@@ -63,6 +63,19 @@
   notify:
     - register gitlab runner
 
+- name: make sure /etc/systemd/system/gitlab-runner.service.d exists
+  file:
+    path: /etc/systemd/system/gitlab-runner.service.d
+    state: directory
+    recurse: yes
+
+- name: set specific startup configurations
+  template:
+    src: exec_start.conf.j2
+    dest: /etc/systemd/system/gitlab-runner.service.d/exec_start.conf
+  notify:
+    - restart gitlab-runner
+
 - name: start and enable gitlab-runner
   service:
     name: "{{ gitlab_runner_service }}"

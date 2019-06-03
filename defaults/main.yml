@@ -2,3 +2,7 @@
 # defaults file for gitlab_runner
 
 gitlab_runner_docker_image: "alpine:latest"
+gitlab_runner_home_directory: /home/gitlab-runner
+gitlab_runner_config: /etc/gitlab-runner/config.toml
+gitlab_runner_service: gitlab-runner
+gitlab_runner_user: gitlab-runner

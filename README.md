@@ -50,6 +50,10 @@ These variables are set in `defaults/main.yml`:
 # defaults file for gitlab_runner
 
 gitlab_runner_docker_image: "alpine:latest"
+gitlab_runner_home_directory: /home/gitlab-runner
+gitlab_runner_config: /etc/gitlab-runner/config.toml
+gitlab_runner_service: gitlab-runner
+gitlab_runner_user: gitlab-runner
 ```
 
 Requirements
@@ -90,7 +94,7 @@ This role has been tested against the following distributions and Ansible versio
 |alpine-edge*|no|no|no*|
 |alpine-latest|no|no|no*|
 |archlinux|no|no|no*|
-|centos-6|yes|yes|yes*|
+|centos-6|no|no|no*|
 |centos-latest|yes|yes|yes*|
 |debian-latest|yes|yes|yes*|
 |debian-stable|yes|yes|yes*|
