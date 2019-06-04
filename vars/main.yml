@@ -15,37 +15,14 @@ _gitlab_runner_requirements:
 
 gitlab_runner_requirements: "{{ _gitlab_runner_requirements[ansible_os_family] }}"
 
-gitlab_runner_apt_repositories:
-  - deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main
-  - deb-src https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main
+_gitlab_runner_package_type:
+  Debian: deb
+  RedHat: rpm
 
-_gitlab_runner_yum_repositories:
-  default:
-    - name: runner_gitlab-runner
-      baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/{{ ansible_distribution_major_version }}/$basearch
-      gpgkey:
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey/runner-gitlab-runner-366915F31B487241.pub.gpg
-    - name: runner_gitlab-runner-source
-      baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/{{ ansible_distribution_major_version }}/SRPMS
-      gpgkey:
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey/runner-gitlab-runner-366915F31B487241.pub.gpg
-  Fedora:
-    - name: runner_gitlab-runner
-      baseurl: https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/{{ ansible_distribution_major_version }}/$basearch
-      gpgkey:
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey/runner-gitlab-runner-366915F31B487241.pub.gpg
-    - name: runner_gitlab-runner-source
-      baseurl: https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_distribution | lower }}/{{ ansible_distribution_major_version }}/SRPMS
-      gpgkey:
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey
-        - https://packages.gitlab.com/runner/gitlab-runner/gpgkey/runner-gitlab-runner-366915F31B487241.pub.gpg
+gitlab_runner_package_type: "{{ _gitlab_runner_package_type[ansible_os_family] }}"
 
-gitlab_runner_yum_repositories: "{{ _gitlab_runner_yum_repositories[ansible_distribution] | default(_gitlab_runner_yum_repositories['default']) }}"
+_gitlab_runner_repository_file:
+  Debian: /dont/know
+  RedHat: /etc/yum.repos.d/gitlab_gitlab-runner.repo
 
-gitlab_runner_packages:
-  - gitlab-runner
-
-gitlab_runner_service: gitlab-runner
+gitlab_runner_repository_file: "{{ _gitlab_runner_repository_file[ansible_os_family] }}"

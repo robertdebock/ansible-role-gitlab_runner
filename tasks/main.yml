@@ -8,54 +8,20 @@
   until: gitlab_runner_install_requirements is succeeded
   retries: 3
 
-- name: install apt repository
-  apt_repository:
-    repo: "{{ item }}"
-    state: present
-  register: gitlab_runner_install_apt_repositories
-  until: gitlab_runner_install_apt_repositories is succeeded
-  retries: 3
-  with_items:
-    - "{{ gitlab_runner_apt_repositories }}"
-  when:
-    - ansible_pkg_mgr == "apt"
-  notify:
-    - update apt cache
+- name: get repository installation script
+  get_url:
+    url: "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.{{ gitlab_runner_package_type }}.sh"
+    dest: /tmp/gitlab-runner-script.sh
+    mode: 0750
 
-- name: install rpm repository
-  yum_repository:
-    name: "{{ item.name }}"
-    description: "{{ item.name }}"
-    baseurl: "{{ item.baseurl }}"
-    gpgkey: "{{ item.gpgkey }}"
-  register: gitlab_runner_install_yum_repository
-  until: gitlab_runner_install_yum_repository is succeeded
-  retries: 3
-  with_items:
-    - "{{ gitlab_runner_yum_repositories }}"
-  when:
-    - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
-  loop_control:
-    label: "{{ item.name }}"
-
-- name: install gpgkey in apt
-  apt_key:
-    url: "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
-    state: present
-  register: gitlab_runner_install_gpgkey_in_apt
-  until: gitlab_runner_install_gpgkey_in_apt is succeeded
-  retries: 3
-  when:
-    - ansible_pkg_mgr == "apt"
-  notify:
-    - update apt cache
-
-- name: flush handlers
-  meta: flush_handlers
+- name: run repository installation script
+  command: /tmp/gitlab-runner-script.sh
+  args:
+    creates: "{{ gitlab_runner_repository_file }}"
 
 - name: install gitlab-runner
   package:
-    name: "{{ gitlab_runner_packages }}"
+    name: gitlab-runner
     state: present
   register: gitlab_runner_install_gitlab_runner
   until: gitlab_runner_install_gitlab_runner is succeeded
@@ -78,7 +44,7 @@
 
 - name: start and enable gitlab-runner
   service:
-    name: "{{ gitlab_runner_service }}"
+    name: gitlab-runner
     state: started
     enabled: yes
   when:
