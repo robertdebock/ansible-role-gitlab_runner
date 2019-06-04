@@ -1,7 +1,5 @@
 ---
 - robertdebock.bootstrap
-- robertdebock.update
-- robertdebock.reboot
 - robertdebock.buildtools
 - robertdebock.epel
 - robertdebock.python_pip
