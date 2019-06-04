@@ -18,7 +18,12 @@ This example is taken from `molecule/resources/playbook.yml`:
   gather_facts: yes
 
   roles:
-    - robertdebock.gitlab_runner
+    - role: robertdebock.gitlab_runner
+      # gitlab_runner_token: 123ABC
+      # gitlab_runner_url: http://localhost/
+      # gitlab_runner_description: My GitLab Runner
+      # gitlab_runner_tags: "docker,my_runner"
+      # gitlab_runner_executor: docker
 ```
 
 The machine you are running this on, may need to be prepared.

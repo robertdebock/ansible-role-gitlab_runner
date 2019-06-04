@@ -5,4 +5,9 @@
   gather_facts: yes
 
   roles:
-    - ansible-role-gitlab_runner
+    - role: ansible-role-gitlab_runner
+      # gitlab_runner_token: 123ABC
+      # gitlab_runner_url: http://localhost/
+      # gitlab_runner_description: My GitLab Runner
+      # gitlab_runner_tags: "docker,my_runner"
+      # gitlab_runner_executor: docker
