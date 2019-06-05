@@ -19,11 +19,6 @@ This example is taken from `molecule/resources/playbook.yml`:
 
   roles:
     - role: robertdebock.gitlab_runner
-      # gitlab_runner_token: 123ABC
-      # gitlab_runner_url: http://localhost/
-      # gitlab_runner_description: My GitLab Runner
-      # gitlab_runner_tags: "docker,my_runner"
-      # gitlab_runner_executor: docker
 ```
 
 The machine you are running this on, may need to be prepared.
@@ -53,7 +48,14 @@ These variables are set in `defaults/main.yml`:
 ---
 # defaults file for gitlab_runner
 
+# These are the setting you need to register a runner.
+# gitlab_runner_token: 123ABC
+# gitlab_runner_url: http://localhost/
+# gitlab_runner_description: My GitLab Runner
+# gitlab_runner_tags: "docker,my_runner"
+# gitlab_runner_executor: docker
 gitlab_runner_docker_image: "alpine:latest"
+
 gitlab_runner_home_directory: /home/gitlab-runner
 gitlab_runner_config: /etc/gitlab-runner/config.toml
 gitlab_runner_service: gitlab-runner
