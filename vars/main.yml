@@ -22,7 +22,7 @@ _gitlab_runner_package_type:
 gitlab_runner_package_type: "{{ _gitlab_runner_package_type[ansible_os_family] }}"
 
 _gitlab_runner_repository_file:
-  Debian: /etc/apt/sources.list.d/gitlab_gitlab-runner.list
-  RedHat: /etc/yum.repos.d/gitlab_gitlab-runner.repo
+  Debian: /etc/apt/sources.list.d/runner_gitlab-runner.list
+  RedHat: /etc/yum.repos.d/runner_gitlab-runner.repo
 
 gitlab_runner_repository_file: "{{ _gitlab_runner_repository_file[ansible_os_family] }}"
