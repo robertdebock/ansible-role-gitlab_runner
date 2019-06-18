@@ -103,8 +103,8 @@ This role has been tested against the following distributions and Ansible versio
 |debian-latest|no|yes|yes*|
 |debian-stable|no|yes|yes*|
 |debian-unstable*|no|yes|yes*|
-|fedora-latest|no|yes|yes*|
-|fedora-rawhide*|no|yes|yes*|
+|fedora-latest|no|no|no*|
+|fedora-rawhide*|no|no|no*|
 |opensuse-leap|no|no|no*|
 |ubuntu-devel*|no|yes|yes*|
 |ubuntu-latest|no|yes|yes*|
