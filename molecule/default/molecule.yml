@@ -25,9 +25,6 @@ platforms:
   - name: gitlab-runner-centos-latest
     image: centos:latest
     pre_build_image: yes
-  - name: gitlab-runner-debian-latest
-    image: debian:latest
-    pre_build_image: yes
   - name: gitlab-runner-debian-stable
     image: debian:stable
     pre_build_image: yes
