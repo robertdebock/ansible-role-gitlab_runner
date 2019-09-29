@@ -2,7 +2,6 @@
 # vars file for gitlab_runner
 _gitlab_runner_requirements:
   Debian:
-    - gnupg
     - curl
     - debian-archive-keyring
     - apt-transport-https
