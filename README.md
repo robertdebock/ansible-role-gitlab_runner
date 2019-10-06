@@ -113,8 +113,8 @@ This role has been tested against the following distributions and Ansible versio
 |alpine-edge*|no|no|no*|
 |alpine-latest|no|no|no*|
 |archlinux|no|no|no*|
-|centos-7|no|no|no*|
-|centos-latest|no|yes|yes*|
+|centos-7|no|yes|yes*|
+|centos-latest|no|no|no*|
 |debian-stable|no|yes|yes*|
 |debian-unstable*|no|yes|yes*|
 |fedora-latest|no|no|no*|
@@ -126,6 +126,18 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
+Exceptions
+----------
+
+Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
+
+| variation                 | reason                 |
+|---------------------------|------------------------|
+| Alpine | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
+| Archlinux | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
+| CentOS 8 | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
+| Fedora | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
+| Ubuntu rolling | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 
 
 
