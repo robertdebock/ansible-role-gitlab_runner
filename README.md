@@ -6,6 +6,9 @@ gitlab_runner
 
 Install and configure gitlab-runner on your system.
 
+<img src="https://img.shields.io/ansible/role/d/40614"/>
+<img src="https://img.shields.io/ansible/quality/40614"/>
+
 Example Playbook
 ----------------
 
@@ -110,7 +113,7 @@ This role has been tested against the following distributions and Ansible versio
 |alpine-edge*|no|no|no*|
 |alpine-latest|no|no|no*|
 |archlinux|no|no|no*|
-|centos-6|no|no|no*|
+|centos-7|no|no|no*|
 |centos-latest|no|yes|yes*|
 |debian-stable|no|yes|yes*|
 |debian-unstable*|no|yes|yes*|
