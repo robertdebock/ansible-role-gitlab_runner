@@ -14,10 +14,6 @@ env:
     - image="docker-debian-systemd"
     - image="docker-centos-systemd" tag="7"
     - image="docker-redhat-systemd" tag="7"
-    - image="docker-centos-systemd"
-    - image="docker-redhat-systemd"
-    - image="docker-fedora-systemd"
-    - image="docker-fedora-systemd" tag="rawhide"
     - image="docker-ubuntu-systemd" tag="rolling"
     - image="docker-ubuntu-systemd" tag="devel"
     - image="docker-ubuntu-systemd"
@@ -25,7 +21,6 @@ env:
 matrix:
   allow_failures:
     - env: image="docker-debian-systemd" tag="unstable"
-    - env: image="docker-fedora-systemd" tag="rawhide"
     - env: image="docker-ubuntu-systemd" tag="rolling"
     - env: image="docker-ubuntu-systemd" tag="devel"
 

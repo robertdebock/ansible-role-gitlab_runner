@@ -115,10 +115,6 @@ This role has been tested on these [container images](https://hub.docker.com/):
 |docker-debian-systemd|latest|no|
 |docker-centos-systemd|7|no|
 |docker-redhat-systemd|7|no|
-|docker-centos-systemd|latest|no|
-|docker-redhat-systemd|latest|no|
-|docker-fedora-systemd|latest|no|
-|docker-fedora-systemd|rawhide|yes|
 |docker-ubuntu-systemd|rolling|yes|
 |docker-ubuntu-systemd|devel|yes|
 |docker-ubuntu-systemd|latest|no|
@@ -140,7 +136,7 @@ Some variarations of the build matrix do not work. These are the variations and 
 |---------------------------|------------------------|
 | Alpine | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 | Archlinux | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
-| CentOS 8 | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
+| EL 8 | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 | Fedora | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 | Ubuntu rolling | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 

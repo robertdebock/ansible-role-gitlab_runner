@@ -4,7 +4,7 @@ exceptions:
     reason: Not supported, see https://docs.gitlab.com/ee/install/requirements.html
   - variation: Archlinux
     reason: Not supported, see https://docs.gitlab.com/ee/install/requirements.html
-  - variation: CentOS 8
+  - variation: EL 8
     reason: Not supported, see https://docs.gitlab.com/ee/install/requirements.html
   - variation: Fedora
     reason: Not supported, see https://docs.gitlab.com/ee/install/requirements.html
