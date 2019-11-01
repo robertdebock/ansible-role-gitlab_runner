@@ -4,8 +4,6 @@
   service:
     name: "{{ gitlab_runner_service }}"
     state: restarted
-  when:
-    - ansible_virtualization_type != "docker"
 
 - name: register gitlab runner
   expect:
