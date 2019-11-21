@@ -23,6 +23,5 @@ galaxy_info:
     - gitlabrunner
     - centos
     - rhel
-    - ubuntu
 
 dependencies: []
