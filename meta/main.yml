@@ -22,7 +22,6 @@ galaxy_info:
   galaxy_tags:
     - gitlabrunner
     - centos
-    - fedora
     - rhel
     - ubuntu
 
