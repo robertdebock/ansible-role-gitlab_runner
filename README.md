@@ -121,7 +121,6 @@ Some variarations of the build matrix do not work. These are the variations and 
 | Ubuntu rolling | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 
 
-
 Testing
 -------
 
