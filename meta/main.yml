@@ -16,7 +16,7 @@ galaxy_info:
         - 7
     - name: Ubuntu
       versions:
-        - bionic
+        - all
 
   galaxy_tags:
     - gitlabrunner
