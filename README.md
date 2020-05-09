@@ -102,9 +102,9 @@ This role has been tested on these [container images](https://hub.docker.com/):
 
 |container|tags|
 |---------|----|
-|debian|buster|
 |el|7|
-|ubuntu|all|
+|debian|buster, bullseye|
+|ubuntu|focal, bionic, xenial|
 
 The minimum version of Ansible required is 2.8 but tests have been done to:
 
