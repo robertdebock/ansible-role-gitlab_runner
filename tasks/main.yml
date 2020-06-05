@@ -12,7 +12,7 @@
   get_url:
     url: "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.{{ gitlab_runner_package_type }}.sh"
     dest: /tmp/gitlab-runner-script.sh
-    mode: 0750
+    mode: "750"
   register: gitlab_runner_get_repository_installation_script
   until: gitlab_runner_get_repository_installation_script is succeeded
   retries: 3
