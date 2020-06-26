@@ -12,7 +12,7 @@
       (.*)gitlab-ci coordinator URL(.*): "{{ gitlab_runner_url }}"
       (.*)gitlab-ci token for this runner(.*): "{{ gitlab_runner_token }}"
       (.*)gitlab-ci description for this runner(.*): "{{ gitlab_runner_description }}"
-      (.*)gitlab-ci tags for this runner(.*): "{{ gitlab_runner_description }}"
+      (.*)gitlab-ci tags for this runner(.*): "{{ gitlab_runner_tags }}"
       (.*)executor(.*): "{{ gitlab_runner_executor }}"
       (.*)Docker image(.*): "{{ gitlab_runner_docker_image }}"
   when:
