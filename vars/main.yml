@@ -1,5 +1,6 @@
 ---
 # vars file for gitlab_runner
+
 _gitlab_runner_requirements:
   Debian:
     - curl
