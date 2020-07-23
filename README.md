@@ -102,7 +102,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|el|7|
+|el|7, 8|
 |debian|buster, bullseye|
 |ubuntu|focal, bionic, xenial|
 
