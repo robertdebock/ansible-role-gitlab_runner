@@ -1,5 +1,9 @@
 ---
 # handlers file for gitlab_runner
+- name: reload systemd
+  systemd:
+    daemon_reload: yes
+
 - name: restart gitlab-runner
   service:
     name: "{{ gitlab_runner_service }}"
