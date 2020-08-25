@@ -31,11 +31,13 @@
     path: /etc/systemd/system/gitlab-runner.service.d
     state: directory
     recurse: yes
+    mode: "0750"
 
 - name: set specific startup configurations
   template:
     src: exec_start.conf.j2
     dest: /etc/systemd/system/gitlab-runner.service.d/exec_start.conf
+    mode: "0640"
   notify:
     - reload systemd
     - restart gitlab-runner
