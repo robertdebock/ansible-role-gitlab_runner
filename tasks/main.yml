@@ -30,7 +30,6 @@
   file:
     path: /etc/systemd/system/gitlab-runner.service.d
     state: directory
-    recurse: yes
     mode: "0750"
 
 - name: set specific startup configurations
