@@ -4,7 +4,7 @@ Install and configure gitlab-runner on your system.
 
 |Travis|GitHub|Quality|Downloads|Version|
 |------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-gitlab_runner.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-gitlab_runner)|[![github](https://github.com/robertdebock/ansible-role-gitlab_runner/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/actions)|[![quality](https://img.shields.io/ansible/quality/40614)](https://galaxy.ansible.com/robertdebock/gitlab_runner)|[![downloads](https://img.shields.io/ansible/role/d/40614)](https://galaxy.ansible.com/robertdebock/gitlab_runner)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-gitlab_runner.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/releases/)|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-gitlab_runner.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-gitlab_runner)|[![github](https://github.com/robertdebock/ansible-role-gitlab_runner/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/actions)|[![quality](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/robertdebock/gitlab_runner)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/robertdebock/gitlab_runner)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-gitlab_runner.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -103,7 +103,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |container|tags|
 |---------|----|
 |el|7, 8|
-|debian|buster, bullseye|
+|debian|buster|
 |ubuntu|focal, bionic, xenial|
 
 The minimum version of Ansible required is 2.8 but tests have been done to:
@@ -123,6 +123,7 @@ Some variarations of the build matrix do not work. These are the variations and 
 | EL 8 | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 | Fedora | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
 | Ubuntu rolling | Not supported, see https://docs.gitlab.com/ee/install/requirements.html |
+| debian:buster | Not supported, see https://docs.gitlab.com/runner/install/linux-repository.html |
 
 
 ## [Testing](#testing)
