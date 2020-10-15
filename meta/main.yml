@@ -23,6 +23,5 @@ galaxy_info:
 
   galaxy_tags:
     - gitlabrunner
-    - centos
 
 dependencies: []
