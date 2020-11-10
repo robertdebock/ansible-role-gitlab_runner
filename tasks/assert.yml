@@ -35,7 +35,7 @@
   assert:
     that:
       - gitlab_runner_executor | length > 0
-      - gitlab_runner_executor in ["ssh", "shell", "parallels", "virtualbox", "docker", "docker_machine", "kubernetes", "custom"]
+      - gitlab_runner_executor in [ "ssh", "shell", "parallels", "virtualbox", "docker", "docker_machine", "kubernetes", "custom" ]
     quiet: yes
   when:
     - gitlab_runner_executor is defined
