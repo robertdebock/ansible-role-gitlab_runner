@@ -2,7 +2,6 @@
 - name: test if gitlab_runner_token is set correctly
   assert:
     that:
-      - gitlab_runner_token | length > 0
     quiet: yes
   when:
     - gitlab_runner_token is defined
@@ -10,7 +9,6 @@
 - name: test if gitlab_runner_url is set correctly
   assert:
     that:
-      - gitlab_runner_url | length > 0
     quiet: yes
   when:
     - gitlab_runner_url is defined
@@ -18,7 +16,6 @@
 - name: test if gitlab_runner_description is set correctly
   assert:
     that:
-      - gitlab_runner_description | length > 0
     quiet: yes
   when:
     - gitlab_runner_description is defined
@@ -26,7 +23,6 @@
 - name: test if gitlab_runner_tags is set correctly
   assert:
     that:
-      - gitlab_runner_tags | length > 0
     quiet: yes
   when:
     - gitlab_runner_tags is defined
@@ -34,7 +30,6 @@
 - name: test if gitlab_runner_executor is set correctly
   assert:
     that:
-      - gitlab_runner_executor | length > 0
       - gitlab_runner_executor in [ "ssh", "shell", "parallels", "virtualbox", "docker", "docker_machine", "kubernetes", "custom" ]
     quiet: yes
   when:
@@ -44,33 +39,28 @@
   assert:
     that:
       - gitlab_runner_docker_image is defined
-      - gitlab_runner_docker_image | length > 0
     quiet: yes
 
 - name: test if gitlab_runner_home_directory is set correctly
   assert:
     that:
       - gitlab_runner_home_directory is defined
-      - gitlab_runner_home_directory | length > 0
     quiet: yes
 
 - name: test if gitlab_runner_config is set correctly
   assert:
     that:
       - gitlab_runner_config is defined
-      - gitlab_runner_config | length > 0
     quiet: yes
 
 - name: test if gitlab_runner_service is set correctly
   assert:
     that:
       - gitlab_runner_service is defined
-      - gitlab_runner_service | length > 0
     quiet: yes
 
 - name: test if gitlab_runner_user is set correctly
   assert:
     that:
       - gitlab_runner_user is defined
-      - gitlab_runner_user | length > 0
     quiet: yes
