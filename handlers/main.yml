@@ -1,5 +1,6 @@
 ---
 # handlers file for gitlab_runner
+
 - name: reload systemd
   systemd:
     daemon_reload: yes
@@ -8,6 +9,8 @@
   service:
     name: "{{ gitlab_runner_service }}"
     state: restarted
+  when:
+    - not ansible_check_mode | bool
 
 - name: register gitlab runner
   expect:
