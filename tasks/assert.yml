@@ -1,4 +1,5 @@
 ---
+
 - name: test if gitlab_runner_executor is set correctly
   assert:
     that:
