@@ -3,6 +3,7 @@
 - name: test if gitlab_runner_executor is set correctly
   assert:
     that:
+      - gitlab_runner_executor is string
       - gitlab_runner_executor in [ "ssh", "shell", "parallels", "virtualbox", "docker", "docker_machine", "kubernetes", "custom" ]
     quiet: yes
   when:
@@ -12,28 +13,33 @@
   assert:
     that:
       - gitlab_runner_docker_image is defined
+      - gitlab_runner_docker_image is string
     quiet: yes
 
 - name: test if gitlab_runner_home_directory is set correctly
   assert:
     that:
       - gitlab_runner_home_directory is defined
+      - gitlab_runner_home_directory is string
     quiet: yes
 
 - name: test if gitlab_runner_config is set correctly
   assert:
     that:
       - gitlab_runner_config is defined
+      - gitlab_runner_config is sting
     quiet: yes
 
 - name: test if gitlab_runner_service is set correctly
   assert:
     that:
       - gitlab_runner_service is defined
+      - gitlab_runner_service is string
     quiet: yes
 
 - name: test if gitlab_runner_user is set correctly
   assert:
     that:
       - gitlab_runner_user is defined
+      - gitlab_runner_user is string
     quiet: yes
