@@ -27,7 +27,7 @@
   assert:
     that:
       - gitlab_runner_config is defined
-      - gitlab_runner_config is sting
+      - gitlab_runner_config is string
     quiet: yes
 
 - name: test if gitlab_runner_service is set correctly
