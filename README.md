@@ -45,17 +45,31 @@ These variables are set in `defaults/main.yml`:
 
 # These are the setting you need to register a runner.
 # gitlab_runner_token: 123ABC
+
+# Should this role register the gitlab runner?
 gitlab_runner_register_runner: yes
+
+# The name as shown in the GitLab webinterface.
 gitlab_runner_name: "{{ ansible_fqdn }}"
+
+# The URL to register the runner to.
 gitlab_runner_url: "https://gitlab.com/"
+
+# The tags, comma separated.
 gitlab_runner_tags: "docker,my_runner"
+
+# The type of executor. Choose from: "ssh", "shell", "parallels", "virtualbox",
+# "docker", "docker_machine", "kubernetes" or "custom"
 gitlab_runner_executor: docker
+
+# The docker image to run.
 gitlab_runner_docker_image: "alpine:latest"
 
+# The home directory.
 gitlab_runner_home_directory: /home/gitlab-runner
+
+# The full path the the configuration.
 gitlab_runner_config: /etc/gitlab-runner/config.toml
-gitlab_runner_service: gitlab-runner
-gitlab_runner_user: gitlab-runner
 ```
 
 ## [Requirements](#requirements)

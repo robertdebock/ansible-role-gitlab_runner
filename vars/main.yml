@@ -15,6 +15,7 @@ _gitlab_runner_requirements:
 
 gitlab_runner_requirements: "{{ _gitlab_runner_requirements[ansible_os_family] }}"
 
+gitlab_runner_script_url: "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.{{ gitlab_runner_package_type }}.sh"
 _gitlab_runner_package_type:
   Debian: deb
   RedHat: rpm
@@ -26,3 +27,5 @@ _gitlab_runner_repository_file:
   RedHat: /etc/yum.repos.d/runner_gitlab-runner.repo
 
 gitlab_runner_repository_file: "{{ _gitlab_runner_repository_file[ansible_os_family] }}"
+
+gitlab_runner_service: gitlab-runner

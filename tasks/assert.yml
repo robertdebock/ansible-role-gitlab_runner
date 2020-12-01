@@ -55,6 +55,8 @@
       - gitlab_runner_docker_image is defined
       - gitlab_runner_docker_image is string
     quiet: yes
+  when:
+    - gitlab_runner_executor == "docker"
 
 - name: test if gitlab_runner_home_directory is set correctly
   assert:
@@ -68,18 +70,4 @@
     that:
       - gitlab_runner_config is defined
       - gitlab_runner_config is string
-    quiet: yes
-
-- name: test if gitlab_runner_service is set correctly
-  assert:
-    that:
-      - gitlab_runner_service is defined
-      - gitlab_runner_service is string
-    quiet: yes
-
-- name: test if gitlab_runner_user is set correctly
-  assert:
-    that:
-      - gitlab_runner_user is defined
-      - gitlab_runner_user is string
     quiet: yes

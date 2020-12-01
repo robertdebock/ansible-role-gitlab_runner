@@ -12,7 +12,7 @@
 
 - name: get repository installation script
   get_url:
-    url: "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.{{ gitlab_runner_package_type }}.sh"
+    url: "{{ gitlab_runner_requirements }}"
     dest: /tmp/gitlab-runner-script.sh
     mode: "750"
 
@@ -26,22 +26,25 @@
     name: gitlab-runner
     state: present
 
-- name: get registration status
-  command: gitlab-runner list
-  register: gitlab_runner_get_registration_status
-  changed_when: no
+- name: register runner
+  block:
+    - name: get registration status
+      command: gitlab-runner list
+      register: gitlab_runner_get_registration_status
+      changed_when: no
 
-- name: register gitlab runner
-  command: >
-    gitlab-runner register --non-interactive
-    --name "{{ gitlab_runner_name }}"
-    --url "{{ gitlab_runner_url }}"
-    --registration-token "{{ gitlab_runner_token }}"
-    --tag-list "{{ gitlab_runner_tags }}"
-    --executor "{{ gitlab_runner_executor }}"
-    --docker-image "{{ gitlab_runner_docker_image }}"
+    - name: register gitlab runner
+      command: >
+        gitlab-runner register --non-interactive
+        --name "{{ gitlab_runner_name }}"
+        --url "{{ gitlab_runner_url }}"
+        --registration-token "{{ gitlab_runner_token }}"
+        --tag-list "{{ gitlab_runner_tags }}"
+        --executor "{{ gitlab_runner_executor }}"
+        --docker-image "{{ gitlab_runner_docker_image }}"
+      when:
+        - gitlab_runner_name not in gitlab_runner_get_registration_status.stderr
   when:
-    - "gitlab_runner_name not in gitlab_runner_get_registration_status.stderr"
     - gitlab_runner_register_runner | bool
 
 - name: start and enable gitlab-runner
