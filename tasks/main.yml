@@ -28,20 +28,38 @@
   notify:
     - register gitlab runner
 
-- name: make sure /etc/systemd/system/gitlab-runner.service.d exists
-  file:
-    path: /etc/systemd/system/gitlab-runner.service.d
-    state: directory
-    mode: "0750"
+- name: get registration status
+  command: gitlab-runner list
+  register: gitlab_runner_get_registration_status
+  changed_when: no
 
-- name: set specific startup configurations
-  template:
-    src: exec_start.conf.j2
-    dest: /etc/systemd/system/gitlab-runner.service.d/exec_start.conf
-    mode: "0640"
-  notify:
-    - reload systemd
-    - restart gitlab-runner
+- name: register gitlab runner
+  command: >
+    gitlab-runner register --non-interactive
+    --url "{{ gitlab_runner_url }}"
+    --registration-token "{{ gitlab_runner_token }}"
+    --description "{{ gitlab_runner_description }}"
+    --tag-list "{{ gitlab_runner_tags }}"
+    --executor "{{ gitlab_runner_executor }}"
+    --docker-image "{{ gitlab_runner_docker_image }}"
+  when:
+    - "'{{ gitlab_runner_description }}' not in gitlab_runner_get_registration_status.stdout"
+
+# TODO: Remove clutter stuff.
+# - name: make sure /etc/systemd/system/gitlab-runner.service.d exists
+#   file:
+#     path: /etc/systemd/system/gitlab-runner.service.d
+#     state: directory
+#     mode: "0750"
+#
+# - name: set specific startup configurations
+#   template:
+#     src: exec_start.conf.j2
+#     dest: /etc/systemd/system/gitlab-runner.service.d/exec_start.conf
+#     mode: "0640"
+#   notify:
+#     - reload systemd
+#     - restart gitlab-runner
 
 - name: start and enable gitlab-runner
   service:
