@@ -35,13 +35,6 @@
       - gitlab_runner_url is string
     quiet: yes
 
-- name: test if gitlab_runner_description is set correctly
-  assert:
-    that:
-      - gitlab_runner_description is defined
-      - gitlab_runner_description is string
-    quiet: yes
-
 - name: test if gitlab_runner_tags is set correctly
   assert:
     that:

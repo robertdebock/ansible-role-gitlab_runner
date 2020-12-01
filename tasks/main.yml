@@ -37,12 +37,11 @@
     --name "{{ gitlab_runner_name }}"
     --url "{{ gitlab_runner_url }}"
     --registration-token "{{ gitlab_runner_token }}"
-    --description "{{ gitlab_runner_description }}"
     --tag-list "{{ gitlab_runner_tags }}"
     --executor "{{ gitlab_runner_executor }}"
     --docker-image "{{ gitlab_runner_docker_image }}"
   when:
-    - "gitlab_runner_description not in gitlab_runner_get_registration_status.stderr"
+    - "gitlab_runner_name not in gitlab_runner_get_registration_status.stderr"
     - gitlab_runner_register_runner | bool
 
 - name: start and enable gitlab-runner

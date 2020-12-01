@@ -48,7 +48,6 @@ These variables are set in `defaults/main.yml`:
 gitlab_runner_register_runner: yes
 gitlab_runner_name: "{{ ansible_fqdn }}"
 gitlab_runner_url: "https://gitlab.com/"
-gitlab_runner_description: My GitLab Runner
 gitlab_runner_tags: "docker,my_runner"
 gitlab_runner_executor: docker
 gitlab_runner_docker_image: "alpine:latest"
