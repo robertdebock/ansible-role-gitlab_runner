@@ -18,6 +18,8 @@ This example is taken from `molecule/resources/converge.yml` and is tested on ea
 
   roles:
     - role: robertdebock.gitlab_runner
+      gitlab_runner_token: fake-token
+      gitlab_runner_register_runner: no
 ```
 
 The machine needs to be prepared in CI this is done using `molecule/resources/prepare.yml`:
@@ -43,6 +45,8 @@ These variables are set in `defaults/main.yml`:
 
 # These are the setting you need to register a runner.
 # gitlab_runner_token: 123ABC
+gitlab_runner_register_runner: yes
+gitlab_runner_name: "{{ ansible_fqdn }}"
 gitlab_runner_url: "https://gitlab.com/"
 gitlab_runner_description: My GitLab Runner
 gitlab_runner_tags: "docker,my_runner"
