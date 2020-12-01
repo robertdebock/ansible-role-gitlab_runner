@@ -12,7 +12,7 @@
 
 - name: get repository installation script
   get_url:
-    url: "{{ gitlab_runner_url }}"
+    url: "{{ gitlab_runner_script_url }}"
     dest: /tmp/gitlab-runner-script.sh
     mode: "750"
 
