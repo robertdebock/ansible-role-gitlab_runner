@@ -57,10 +57,3 @@
     quiet: yes
   when:
     - gitlab_runner_executor == "docker"
-
-- name: test if gitlab_runner_config is set correctly
-  assert:
-    that:
-      - gitlab_runner_config is defined
-      - gitlab_runner_config is string
-    quiet: yes

@@ -64,9 +64,6 @@ gitlab_runner_executor: docker
 
 # The docker image to run.
 gitlab_runner_docker_image: "alpine:latest"
-
-# The full path the the configuration.
-gitlab_runner_config: /etc/gitlab-runner/config.toml
 ```
 
 ## [Requirements](#requirements)
