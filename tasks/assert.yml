@@ -58,13 +58,6 @@
   when:
     - gitlab_runner_executor == "docker"
 
-- name: test if gitlab_runner_home_directory is set correctly
-  assert:
-    that:
-      - gitlab_runner_home_directory is defined
-      - gitlab_runner_home_directory is string
-    quiet: yes
-
 - name: test if gitlab_runner_config is set correctly
   assert:
     that:
