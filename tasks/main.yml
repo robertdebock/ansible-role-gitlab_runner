@@ -7,12 +7,12 @@
   delegate_to: localhost
 
 - name: install requirements
-  package:
+  ansible.builtin.package:
     name: "{{ gitlab_runner_requirements }}"
     state: present
 
 - name: get repository installation script
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ gitlab_runner_script_url }}"
     dest: /tmp/gitlab-runner-script.sh
     mode: "750"
@@ -23,7 +23,7 @@
     creates: "{{ gitlab_runner_repository_file }}"
 
 - name: install gitlab-runner
-  package:
+  ansible.builtin.package:
     name: gitlab-runner
     state: present
 
@@ -49,7 +49,7 @@
     - gitlab_runner_register_runner | bool
 
 - name: start and enable gitlab-runner
-  service:
+  ansible.builtin.service:
     name: gitlab-runner
     state: started
     enabled: yes
