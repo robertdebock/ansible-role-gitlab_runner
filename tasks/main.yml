@@ -18,7 +18,7 @@
     mode: "750"
 
 - name: run repository installation script
-  command: /tmp/gitlab-runner-script.sh
+  ansible.builtin.command: /tmp/gitlab-runner-script.sh
   args:
     creates: "{{ gitlab_runner_repository_file }}"
 
