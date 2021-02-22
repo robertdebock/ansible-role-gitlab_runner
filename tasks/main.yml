@@ -30,12 +30,12 @@
 - name: register runner
   block:
     - name: get registration status
-      command: gitlab-runner list
+      ansible.builtin.command: gitlab-runner list
       register: gitlab_runner_get_registration_status
       changed_when: no
 
     - name: register gitlab runner
-      command: >
+      ansible.builtin.command: >
         gitlab-runner register --non-interactive
         --name "{{ gitlab_runner_name }}"
         --url "{{ gitlab_runner_url }}"
