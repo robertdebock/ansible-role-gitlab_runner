@@ -17,6 +17,8 @@ molecule:
   parallel:
     matrix:
       - image: "centos"
+        tag: "7"
+      - image: "centos"
         tag: "latest"
       - image: "ubuntu"
         tag: "latest"
