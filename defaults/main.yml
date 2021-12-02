@@ -22,3 +22,6 @@ gitlab_runner_executor: docker
 
 # The docker image to run.
 gitlab_runner_docker_image: "alpine:latest"
+
+# Use self-signed certificate
+gitlab_tls_selfsigned: no
