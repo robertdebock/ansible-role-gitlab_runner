@@ -20,6 +20,8 @@
       - gitlab_runner_token is defined
       - gitlab_runner_token is string
     quiet: yes
+  when:
+    - gitlab_runner_register_runner
 
 - name: test if gitlab_runner_url is set correctly
   ansible.builtin.assert:
