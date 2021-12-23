@@ -6,5 +6,3 @@
 
   roles:
     - role: ansible-role-gitlab_runner
-      gitlab_runner_token: fake-token
-      gitlab_runner_register_runner: no

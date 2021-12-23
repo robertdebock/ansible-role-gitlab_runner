@@ -48,7 +48,7 @@
       when:
         - gitlab_runner_name not in gitlab_runner_get_registration_status.stderr
   when:
-    - gitlab_runner_register_runner | bool
+    - gitlab_runner_token is defined
 
 - name: start and enable gitlab-runner
   ansible.builtin.service:

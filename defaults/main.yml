@@ -4,9 +4,6 @@
 # These are the setting you need to register a runner.
 # gitlab_runner_token: 123ABC
 
-# Should this role register the gitlab runner?
-gitlab_runner_register_runner: yes
-
 # The name as shown in the GitLab webinterface.
 gitlab_runner_name: "{{ ansible_fqdn }}"
 
