@@ -6,3 +6,6 @@
 
   roles:
     - role: ansible-role-gitlab_runner
+      gitlab_runner_tags:
+        - docker
+        - my_runner
