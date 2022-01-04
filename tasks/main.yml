@@ -45,6 +45,7 @@
           --tag-list "{{ gitlab_runner_tags | join(',') }}"
           --executor "{{ gitlab_runner_executor }}"
           --docker-image "{{ gitlab_runner_docker_image }}"
+          --locked="false"
       when:
         - gitlab_runner_name not in gitlab_runner_get_registration_status.stderr
   when:
