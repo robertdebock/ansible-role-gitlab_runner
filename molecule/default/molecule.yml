@@ -6,6 +6,7 @@ dependency:
   name: galaxy
   options:
     role-file: requirements.yml
+    requirements-file: requirements.yml
 lint: |
   set -e
   yamllint .
@@ -14,7 +15,7 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "gitlab_runner-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
+  - name: "gitlabrunner-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
     image: "${namespace:-robertdebock}/${image:-fedora}:${tag:-latest}"
     command: /sbin/init
     volumes:
