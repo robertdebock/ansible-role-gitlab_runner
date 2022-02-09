@@ -16,9 +16,9 @@ molecule:
   retry: 1
   parallel:
     matrix:
-      - image: "centos"
+      - image: "enterpriselinux"
         tag: "7"
-      - image: "centos"
+      - image: "enterpriselinux"
         tag: "latest"
       - image: "ubuntu"
         tag: "latest"
