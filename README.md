@@ -62,6 +62,9 @@ gitlab_runner_executor: docker
 
 # The docker image to run.
 gitlab_runner_docker_image: "alpine:latest"
+
+# The version of the GitLab runner to install.
+gitlab_runner_version: "14.7.0"
 ```
 
 ## [Requirements](#requirements)

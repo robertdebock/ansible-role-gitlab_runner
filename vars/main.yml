@@ -30,3 +30,9 @@ _gitlab_runner_repository_file:
 gitlab_runner_repository_file: "{{ _gitlab_runner_repository_file[ansible_os_family] }}"
 
 gitlab_runner_service: gitlab-runner
+
+_gitlab_runner_version_separator:
+  yum: "-"
+  apt: "="
+
+gitlab_runner_version_separator: "{{ _gitlab_runner_version_separator[ansible_pkg_mgr] }}"
