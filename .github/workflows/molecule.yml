@@ -38,11 +38,9 @@ jobs:
           - image: "enterpriselinux"
             tag: "latest"
           - image: "ubuntu"
-            tag: "latest"
+            tag: "bionic"
           - image: "ubuntu"
             tag: "focal"
-          - image: "ubuntu"
-            tag: "bionic"
     steps:
       - name: checkout
         uses: actions/checkout@v2

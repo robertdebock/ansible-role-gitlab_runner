@@ -21,11 +21,9 @@ molecule:
       - image: "enterpriselinux"
         tag: "latest"
       - image: "ubuntu"
-        tag: "latest"
+        tag: "bionic"
       - image: "ubuntu"
         tag: "focal"
-      - image: "ubuntu"
-        tag: "bionic"
 
 galaxy:
   script:
