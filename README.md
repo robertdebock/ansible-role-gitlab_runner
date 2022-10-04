@@ -48,7 +48,7 @@ The default values for the variables are set in `defaults/main.yml`:
 # defaults file for gitlab_runner
 
 # These are the setting you need to register a runner.
-# gitlab_runner_token: 123ABC
+# gitlab_runner_registration_token: "123ABC"
 
 # The name as shown in the GitLab webinterface.
 gitlab_runner_name: "{{ ansible_fqdn }}"
@@ -68,6 +68,9 @@ gitlab_runner_docker_image: "alpine:latest"
 
 # The version of the GitLab runner to install.
 gitlab_runner_version: "15.2.2"
+
+# Set the amount of concurrent jobs.
+gitlab_runner_concurrency: "{{ ansible_processor_vcpus }}"
 ```
 
 ## [Requirements](#requirements)

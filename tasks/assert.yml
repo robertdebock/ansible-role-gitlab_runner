@@ -15,8 +15,6 @@
   when:
     - gitlab_runner_registration_token is defined
 
-# TODO: Add gitlab_runner_api_token
-
 - name: Test if gitlab_runner_url is set correctly
   ansible.builtin.assert:
     that:
@@ -53,4 +51,12 @@
     that:
       - gitlab_runner_version is defined
       - gitlab_runner_version is string
+    quiet: yes
+
+- name: Test if gitlab_runner_concurrency is set correctly
+  ansible.builtin.assert:
+    that:
+      - gitlab_runner_concurrency is defined
+      - gitlab_runner_concurrency is number
+      - gitlab_runner_concurrency >= 0
     quiet: yes
