@@ -48,7 +48,7 @@
           --docker-privileged
           --docker-volumes /var/run/docker.sock:/var/run/docker.sock
           --locked="false"
-          --env DOCKER_HOST="unix:///var/run/docker.sock"
+          --request-concurrency "{{ gitlab_runner_concurrency }}"
       when:
         - gitlab_runner_name not in gitlab_runner_get_registration_status.stderr
   when:
