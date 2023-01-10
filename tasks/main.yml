@@ -28,6 +28,8 @@
     state: present
 
 - name: Register runner
+  when:
+    - gitlab_runner_registration_token is defined
   block:
     - name: Get registration status
       ansible.builtin.command:
@@ -51,8 +53,6 @@
           --request-concurrency "{{ gitlab_runner_concurrency }}"
       when:
         - gitlab_runner_name not in gitlab_runner_get_registration_status.stderr
-  when:
-    - gitlab_runner_registration_token is defined
 
 - name: Start and enable gitlab-runner
   ansible.builtin.service:
