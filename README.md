@@ -77,7 +77,7 @@ gitlab_runner_concurrency: "{{ ansible_processor_vcpus }}"
 
 - pip packages listed in [requirements.txt](https://github.com/robertdebock/ansible-role-gitlab_runner/blob/master/requirements.txt).
 
-## [Status of used roles](#status-of-requirements)
+## [State of used roles](#state-of-used-roles)
 
 The following roles are used to prepare a system. You can prepare your system in another way.
 
