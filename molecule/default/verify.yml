@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-    - name: run version check
+    - name: Run version check
       ansible.builtin.command:
         cmd: gitlab-runner --version
       changed_when: no
