@@ -5,12 +5,14 @@
     that:
       - gitlab_runner_name is defined
       - gitlab_runner_name is string
+      - gitlab_runner_name is not none
     quiet: yes
 
 - name: assert | Test if gitlab_runner_registration_token is set correctly
   ansible.builtin.assert:
     that:
       - gitlab_runner_registration_token is string
+      - gitlab_runner_registration_token is not none
     quiet: yes
   when:
     - gitlab_runner_registration_token is defined
@@ -20,6 +22,7 @@
     that:
       - gitlab_runner_url is defined
       - gitlab_runner_url is string
+      - gitlab_runner_url is not none
     quiet: yes
 
 - name: assert | Test if gitlab_runner_tags is set correctly
@@ -42,6 +45,7 @@
     that:
       - gitlab_runner_docker_image is defined
       - gitlab_runner_docker_image is string
+      - gitlab_runner_docker_image is not none
     quiet: yes
   when:
     - gitlab_runner_executor == "docker"
@@ -51,6 +55,7 @@
     that:
       - gitlab_runner_version is defined
       - gitlab_runner_version is string
+      - gitlab_runner_version is not none
     quiet: yes
 
 - name: assert | Test if gitlab_runner_concurrency is set correctly
