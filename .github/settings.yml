@@ -5,4 +5,4 @@
 repository:
   description: Install and configure gitlab-runner on your system.
   homepage: https://robertdebock.nl/
-  topics: gitlabrunner, ansible, molecule, tox, playbook
+  topics: gitlabrunner, development, ansible, molecule, tox, playbook
