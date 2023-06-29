@@ -9,15 +9,15 @@ _gitlab_runner_requirements:
     - git
     - openssl
   RedHat:
-    7:
+    "7":
       - curl
       - yum-utils
       - openssl
-    8:
+    "8":
       - curl
       - yum-utils
       - openssl
-    default:
+    "9":
       - curl-minimal
       - yum-utils
       - openssl
