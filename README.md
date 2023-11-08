@@ -2,9 +2,9 @@
 
 Install and configure gitlab-runner on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![github](https://github.com/robertdebock/ansible-role-gitlab_runner/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-gitlab_runner/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-gitlab_runner)|[![quality](https://img.shields.io/ansible/quality/40614)](https://galaxy.ansible.com/robertdebock/gitlab_runner)|[![downloads](https://img.shields.io/ansible/role/d/40614)](https://galaxy.ansible.com/robertdebock/gitlab_runner)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-gitlab_runner.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/releases/)|
+|GitHub|GitLab|Downloads|Version|
+|------|------|---------|-------|
+|[![github](https://github.com/robertdebock/ansible-role-gitlab_runner/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-gitlab_runner/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-gitlab_runner)|[![downloads](https://img.shields.io/ansible/role/d/24503)](https://galaxy.ansible.com/robertdebock/gitlab_runner)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-gitlab_runner.svg)](https://github.com/robertdebock/ansible-role-gitlab_runner/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -110,7 +110,7 @@ The minimum version of Ansible required is 2.12, tests have been done to:
 - The current version.
 - The development version.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-gitlab_runner/issues)
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-gitlab_runner/issues).
 
 ## [License](#license)
 
