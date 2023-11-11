@@ -1,4 +1,4 @@
-# [gitlab_runner](#gitlab_runner)
+# Ansible role [gitlab_runner](#gitlab_runner)
 
 Install and configure gitlab-runner on your system.
 
@@ -101,8 +101,8 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|[EL](https://hub.docker.com/repository/docker/robertdebock/enterpriselinux/general)|all|
-|[Ubuntu](https://hub.docker.com/repository/docker/robertdebock/ubuntu/general)|bionic, focal|
+|[EL](https://hub.docker.com/r/robertdebock/enterpriselinux)|all|
+|[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|bionic, focal|
 
 The minimum version of Ansible required is 2.12, tests have been done to:
 
