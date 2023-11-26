@@ -1,4 +1,4 @@
-# Ansible role [gitlab_runner](#gitlab_runner)
+# [Ansible role gitlab_runner](#gitlab_runner)
 
 Install and configure gitlab-runner on your system.
 
