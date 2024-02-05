@@ -28,3 +28,6 @@ gitlab_runner_concurrency: "{{ ansible_processor_vcpus }}"
 
 # Activate or deactivate privileged runner
 gitlab_runner_privileged: true
+
+# The type of package state. Choose from: "present" or "latest"
+gitlab_runner_package_state: present
