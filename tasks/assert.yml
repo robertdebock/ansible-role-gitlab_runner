@@ -65,3 +65,10 @@
       - gitlab_runner_concurrency is number
       - gitlab_runner_concurrency >= 0
     quiet: yes
+
+- name: assert | Test if gitlab_runner_package_state is set correctly
+  ansible.builtin.assert:
+    that:
+      - gitlab_runner_package_state is string
+      - gitlab_runner_package_state in [ "present", "latest" ]
+    quiet: yes

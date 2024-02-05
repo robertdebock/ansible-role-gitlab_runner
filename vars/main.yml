@@ -51,4 +51,6 @@ _gitlab_runner_version_separator:
 
 gitlab_runner_version_separator: "{{ _gitlab_runner_version_separator[ansible_pkg_mgr] }}"
 
-gitlab_runner_package: "gitlab-runner{{ gitlab_runner_version_separator }}{{ gitlab_runner_version }}"
+gitlab_runner_package_name: gitlab-runner
+
+gitlab_runner_package: "{{ gitlab_runner_package_name }}{% if gitlab_runner_package_state == 'present' %}{{ gitlab_runner_version_separator }}{{ gitlab_runner_version }}{% endif %}"
