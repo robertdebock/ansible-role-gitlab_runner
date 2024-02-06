@@ -28,6 +28,14 @@
     name: "{{ gitlab_runner_package }}"
     state: present
 
+- name: Limit concurrent jobs on registered runners
+  ansible.builtin.lineinfile:
+    path: /etc/gitlab-runner/config.toml
+    regexp: '^concurrent = .*'
+    line: 'concurrent = {{ gitlab_runner_concurrent | int }}'
+    insertbefore: BOF
+  when: gitlab_runner_concurrent is defined
+
 - name: Register runner
   when:
     - gitlab_runner_registration_token is defined
