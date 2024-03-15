@@ -27,4 +27,4 @@ gitlab_runner_version: "16.3.1"
 gitlab_runner_concurrency: "{{ ansible_processor_vcpus }}"
 
 # Activate or deactivate privileged runner
-gitlab_runner_privileged: true
+gitlab_runner_privileged: yes
