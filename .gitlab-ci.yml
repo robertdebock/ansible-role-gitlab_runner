@@ -19,8 +19,6 @@ molecule:
       - image: "enterpriselinux"
         tag: "latest"
       - image: "ubuntu"
-        tag: "bionic"
-      - image: "ubuntu"
         tag: "focal"
 
 galaxy:
