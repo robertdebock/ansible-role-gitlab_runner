@@ -45,7 +45,6 @@
           --name "{{ gitlab_runner_name }}"
           --url "{{ gitlab_runner_url }}"
           --token "{{ gitlab_runner_registration_token }}"
-          --tag-list "{{ gitlab_runner_tags | join(',') }}"
           --executor "{{ gitlab_runner_executor }}"
           --docker-image "{{ gitlab_runner_docker_image }}"
           {% if gitlab_runner_privileged %}
