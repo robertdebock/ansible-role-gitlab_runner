@@ -18,7 +18,7 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
   gather_facts: true
 
   roles:
-    - role: robertdebock.gitlab_runner
+    - role: ansible-role-gitlab_runner
       gitlab_runner_tags:
         - docker
         - my_runner
