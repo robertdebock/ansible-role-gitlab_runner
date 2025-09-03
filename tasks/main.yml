@@ -12,16 +12,23 @@
     name: "{{ gitlab_runner_requirements }}"
     state: present
 
+- name: Check repository file existence
+  ansible.builtin.stat:
+    path: "{{ gitlab_runner_repository_file }}"
+  register: gitlab_runner_repository_file_status
+
 - name: Get repository installation script
   ansible.builtin.get_url:
     url: "{{ gitlab_runner_script_url }}"
     dest: /tmp/gitlab-runner-script.sh
     mode: "750"
+  when: not gitlab_runner_repository_file_status.stat.exists
 
 - name: Run repository installation script
   ansible.builtin.command:
     cmd: /tmp/gitlab-runner-script.sh
     creates: "{{ gitlab_runner_repository_file }}"
+  when: not gitlab_runner_repository_file_status.stat.exists
 
 - name: Install gitlab-runner
   ansible.builtin.package:
