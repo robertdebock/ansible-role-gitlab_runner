@@ -31,8 +31,6 @@ jobs:
         distro:
           - image: "enterpriselinux"
             tag: "latest"
-          - image: "ubuntu"
-            tag: "focal"
     steps:
       - name: checkout
         uses: actions/checkout@v4
