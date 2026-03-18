@@ -51,7 +51,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 # gitlab_runner_registration_token: "123ABC"
 
 # The name as shown in the GitLab webinterface.
-gitlab_runner_name: "{{ ansible_fqdn }}"
+gitlab_runner_name: "{{ ansible_facts['fqdn'] }}"
 
 # The URL to register the runner to.
 gitlab_runner_url: "https://gitlab.com/"
@@ -67,7 +67,7 @@ gitlab_runner_docker_image: "alpine:latest"
 gitlab_runner_version: "16.3.1"
 
 # Set the amount of concurrent jobs.
-gitlab_runner_concurrency: "{{ ansible_processor_vcpus }}"
+gitlab_runner_concurrency: "{{ ansible_facts['processor_vcpus'] }}"
 
 # Activate or deactivate privileged runner
 gitlab_runner_privileged: true
