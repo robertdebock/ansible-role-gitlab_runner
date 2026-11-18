@@ -47,6 +47,7 @@ gitlab_runner_service: gitlab-runner
 _gitlab_runner_version_separator:
   apt: "="
   dnf: "-"
+  dnf5: "-"
   yum: "-"
 
 gitlab_runner_version_separator: "{{ _gitlab_runner_version_separator[ansible_facts['pkg_mgr']] }}"
